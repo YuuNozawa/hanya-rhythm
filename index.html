@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rythm training App</title>
+        <script src="Audio.js"></script>
+        <script src="Rhythm.js"></script>
+        <script src="State.js"></script>
+        <script src="components/Panel.js"></script>
+        <script src="components/OneBeatLeftPanel.js"></script>
+        <script src="components/OneBeatRightPanel.js"></script>
+        <script src="components/TwoBeatsLeftPanel.js"></script>
+        <script src="components/TwoBeatsRightPanel.js"></script>
+        <script src="components/ThreeBeatsLeftPanel.js"></script>
+        <script src="components/ThreeBeatsRightPanel.js"></script>
+        <script src="components/FourBeatsLeftPanel.js"></script>
+        <script src="components/FourBeatsRightPanel.js"></script>
+        <script src="Main.js" defer></script>
+        <script src="UI.js"></script>
+        <style>
+            body {
+                margin: 0;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #f0f0f0;
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                gap: 20px;
+                width: 80vw;
+                height: 70vh;
+            }
+
+            .header {
+                width: 80vw;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 1.2em;
+                font-weight: bold;
+                border: none;
+                border-radius: 20px;
+                background-color: #008CBA;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.2s, transform 0.2s;
+            }
+
+            .button:active {
+                transform: scale(0.95);
+            }
+
+            .button.pause {
+                background-color: #f44336;
+            }
+
+            .button:hover {
+                background-color: #0074A2;
+            }
+
+            .button.pause:hover {
+                background-color: #d32f2f;
+            }
+            .panel {
+                background-color: white;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 2em;
+                transition: background-color 0.1s, border-color 0.1s;
+            }
+            @keyframes neonBorder {
+                0% {
+                    box-shadow: 0 0 1px #f00, 0 0 2px #f00, 0 0 4px #f00, 0 0 8px #f00, 0 0 16px #f00, 0 0 32px #f00;
+                }
+                50% {
+                    box-shadow: 0 0 1px #f00, 0 0 2px #f00, 0 0 4px #f00, 0 0 8px #f00, 0 0 16px #f00, 0 0 32px #f00;
+                }
+                100% {
+                    box-shadow: 0 0 1px #f00, 0 0 2px #f00, 0 0 4px #f00, 0 0 8px #f00, 0 0 16px #f00, 0 0 32px #f00;
+                }
+            }
+            .neon {
+                animation: neonBorder 0.23s forwards;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div>
+                <button class="button play" id="play_button">Play</button>
+                <button class="button pause" id="pause_button">Pause</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="panel four-beats left">4</div>
+            <div class="panel four-beats right">4</div>
+            <div class="panel three-beats left">3</div>
+            <div class="panel three-beats right">3</div>
+            <div class="panel two-beats left">2</div>
+            <div class="panel two-beats right">2</div>
+            <div class="panel one-beat left">1</div>
+            <div class="panel one-beat right">1</div>
+        </div>
+    </body>
+</html>
